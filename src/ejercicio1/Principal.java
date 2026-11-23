@@ -4,12 +4,31 @@ import java.util.Scanner;
 
 public class Principal {
 
-    static Scanner sc = new Scanner(System.in);
+    public static Scanner sc = new Scanner(System.in);
+
+    // solución clase
+    Coche c2;
+
+    public Principal(){
+        c2=new Coche();
+    }
+
+    public void generarCoche2(){
+        System.out.println("Introducir marca: ");
+        c2.setMarca(sc.nextLine());
+        System.out.println("Introducir precio: ");
+        c2.setBaseImponible(sc.nextInt());
+        System.out.println(c2);
+    }
+
+    // fin solución clase
 
     public static void main(String[] args) {
-
         generarCoche();
 
+        //resolución mediante
+        Principal interfaz = new Principal();
+        interfaz.generarCoche2();
     }
 
     public static void generarCoche() {
@@ -18,6 +37,8 @@ public class Principal {
         Coche coche1 = new Coche(marca, baseImponible);
         System.out.println(coche1);
     }
+
+
 
     public static String pedirMarca() {
         System.out.println("Introduce la marca del coche: ");
@@ -37,9 +58,7 @@ public class Principal {
                 System.out.println("Error en el tipo de dato. ");
                 sc.next();
             }
-
         } while (baseImponible < 1);
-
         return baseImponible;
     }
 }
