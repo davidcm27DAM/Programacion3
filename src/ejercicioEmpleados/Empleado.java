@@ -111,6 +111,7 @@ public class Empleado {
         return edad;
     }
 
+    //  El salario asignado debe ser siempre positivo.
     private int introducirSalario() {
         int salario = 0;
 

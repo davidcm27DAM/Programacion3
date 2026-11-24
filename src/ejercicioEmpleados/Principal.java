@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class Principal {
 
     public static Scanner sc = new Scanner(System.in);
-    Empleado e1;
+    Empleado empleado1;
+    Empleado empleado2;
 
     public Principal() {
-        e1 = new Empleado();
+        empleado1 = new Empleado();
+        empleado2 = new Empleado("Agustín", "Alvarado", 60, 1500);
     }
 
     public static void main(String[] args) {
@@ -16,19 +18,23 @@ public class Principal {
     }
 
     public static void run() {
-
         Principal interfaz = new Principal();
-        interfaz.e1.crearEmplado();
-        Empleado empleado2 = new Empleado("Agustín", "Alvarado", 60, 1500);
+        interfaz.empleado1.crearEmplado();
 
-        System.out.println(interfaz.e1);
-        System.out.println(empleado2);
+        // Seguimiento de los datos introducidos
+        System.out.println("Datos actuales: ");
+        System.out.println(interfaz.empleado1);
+        System.out.println(interfaz.empleado2);
 
-        interfaz.e1.incrementarSalario();
-        empleado2.incrementarSalario();
+        interfaz.empleado1.incrementarSalario();
+        interfaz.empleado2.incrementarSalario();
 
-        System.out.println(interfaz.e1);
-        System.out.println(empleado2);
+        /*
+        * Resultado de la llamada al método incrementarSalario();
+         */
+        System.out.println("Datos tras el incremento de salario: ");
+        System.out.println(interfaz.empleado1);
+        System.out.println(interfaz.empleado2);
 
 
 
