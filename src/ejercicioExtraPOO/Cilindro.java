@@ -10,6 +10,11 @@ public class Cilindro {
         setAltura(altura);
     }
 
+    public static void printVolumen(double volumen) {
+        System.out.println("El volumen de tu cilindro es de " +
+                volumen + " unidades. ");
+    }
+
     public int getRadio() {
         return radio;
     }
@@ -29,6 +34,5 @@ public class Cilindro {
     public double calcularVolumen() {
         return (Math.PI * Math.pow(getRadio(), 2) * getAltura());
     }
-
 
 }

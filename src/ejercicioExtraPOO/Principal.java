@@ -21,12 +21,9 @@ public class Principal {
     }
 
     public static void run() {
-        double volumen = 0;
-
         String tipoVolumen = introducirTipo();
         if (tipoVolumen.equalsIgnoreCase("esfera")) {
             ejecutarEsfera();
-
 
         } else if (tipoVolumen.equalsIgnoreCase("cilindro")) {
             ejecutarCilindro();
@@ -34,10 +31,6 @@ public class Principal {
         } else {
             System.out.println("Error en el valor introducido. \nFin de la ejecución. ");
         }
-
-
-        System.out.println("El volumen de tu " + tipoVolumen + " es de " + volumen + " unidades. ");
-
     }
 
     public static String introducirTipo() {
@@ -72,18 +65,13 @@ public class Principal {
 
     public static void ejecutarEsfera() {
         Principal interfaz = new Principal(introducirRadio());
-        printVolumen("esfera", interfaz.esfera.calcularVolumen());
+        Esfera.printVolumen(interfaz.esfera.calcularVolumen());
 
     }
 
-    public static void ejecutarCilindro(){
+    public static void ejecutarCilindro() {
         Principal interfaz = new Principal(introducirRadio(), introducirAltura());
-        printVolumen("cilindro", interfaz.cilindro.calcularVolumen());
-    }
-
-    public static void printVolumen(String tipo, double volumen){
-        System.out.println("El volumen de tu"+ tipo +" es de " +
-                volumen + " unidades. ");
+        Cilindro.printVolumen(interfaz.cilindro.calcularVolumen());
     }
 
 
