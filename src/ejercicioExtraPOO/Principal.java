@@ -22,19 +22,24 @@ public class Principal {
 
     public static void run(){
         double volumen = 0;
+        boolean correcto = false;
         String tipoVolumen = introducirTipo();
         if (tipoVolumen.equalsIgnoreCase("esfera")){
             Principal interfaz = new Principal(introducirRadio());
             volumen = interfaz.esfera.calcularVolumen();
+            correcto = true;
 
         } else if (tipoVolumen.equalsIgnoreCase("cilindro")){
             Principal interfaz = new Principal(introducirRadio(), introducirAltura());
             volumen = interfaz.cilindro.calcularVolumen();
+            correcto = true;
         } else {
             System.out.println("Error en el valor introducido. \nFin de la ejecución. ");
         }
 
-        System.out.println("El volumen de tu "+tipoVolumen + "es de "+ volumen+" unidades. ");
+        if (correcto){
+            System.out.println("El volumen de tu "+tipoVolumen + " es de "+ volumen+" unidades. ");
+        }
     }
 
     public static String introducirTipo(){
