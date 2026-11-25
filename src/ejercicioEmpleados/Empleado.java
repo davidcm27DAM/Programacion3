@@ -4,10 +4,19 @@ import static ejercicio1.Principal.sc;
 
 public class Empleado {
 
+    public static final int EDAD18 = 18;
+    public static final int EDAD30 = 30;
+    public static final int EDAD31 = 31;
+    public static final int EDAD50 = 50;
+    public static final int EDAD50_MAS = 50;
+    public static final int INCREMENTO100 = 100;
+    public static final int INCREMENTO150 = 150;
+    public static final int INCREMENTO200 = 200;
+
     private String nombre;
     private String apellido;
     private int edad;
-    private int salario;
+    private double salario;
 
     public Empleado() {
 
@@ -53,11 +62,11 @@ public class Empleado {
         this.edad = edad;
     }
 
-    public int getSalario() {
+    public double getSalario() {
         return salario;
     }
 
-    public void setSalario(int salario) {
+    public void setSalario(double salario) {
         this.salario = salario;
     }
 
@@ -133,14 +142,13 @@ public class Empleado {
         return salario;
     }
 
-    public void incrementarSalario(){
-        int edad = getEdad();
-        if (edad >= 18 && edad <= 30){
-            setSalario(getSalario()+100);
-        } else if (edad >= 31 && edad <=50 ){
-            setSalario(getSalario()+150);
-        } else if (edad >50){
-            setSalario(getSalario()+200);
+    public void incrementarSalario() {
+        if (getEdad() >= EDAD18 && edad <= EDAD30) {
+            setSalario(getSalario() + INCREMENTO100);
+        } else if (getEdad() >= EDAD31 && edad <= EDAD50) {
+            setSalario(getSalario() + INCREMENTO150);
+        } else if (getEdad() > EDAD50_MAS) {
+            setSalario(getSalario() + INCREMENTO200);
         }
     }
 }

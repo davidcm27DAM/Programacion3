@@ -14,27 +14,28 @@ public class Principal {
     }
 
     public static void main(String[] args) {
-        run();
+        Principal interfaz = new Principal();
+        interfaz.run();
     }
 
-    public static void run() {
-        Principal interfaz = new Principal();
-        interfaz.empleado1.crearEmplado();
+    public void run() {
+
+        empleado1.crearEmplado();
 
         // Seguimiento de los datos introducidos
         System.out.println("Datos actuales: ");
-        System.out.println(interfaz.empleado1);
-        System.out.println(interfaz.empleado2);
+        System.out.println(empleado1);
+        System.out.println(empleado2);
 
-        interfaz.empleado1.incrementarSalario();
-        interfaz.empleado2.incrementarSalario();
+        empleado1.incrementarSalario();
+        empleado2.incrementarSalario();
 
         /*
         * Resultado de la llamada al método incrementarSalario();
          */
         System.out.println("Datos tras el incremento de salario: ");
-        System.out.println(interfaz.empleado1);
-        System.out.println(interfaz.empleado2);
+        System.out.println(empleado1);
+        System.out.println(empleado2);
 
 
 
