@@ -8,11 +8,11 @@ public class Principal {
     Esfera esfera;
     Cilindro cilindro;
 
-    public Principal(int radio){
+    public Principal(int radio) {
         esfera = new Esfera(radio);
     }
 
-    public Principal(int radio, int altura){
+    public Principal(int radio, int altura) {
         cilindro = new Cilindro(radio, altura);
     }
 
@@ -20,40 +20,38 @@ public class Principal {
         run();
     }
 
-    public static void run(){
+    public static void run() {
         double volumen = 0;
-        boolean correcto = false;
-        String tipoVolumen = introducirTipo();
-        if (tipoVolumen.equalsIgnoreCase("esfera")){
-            Principal interfaz = new Principal(introducirRadio());
-            volumen = interfaz.esfera.calcularVolumen();
-            correcto = true;
 
-        } else if (tipoVolumen.equalsIgnoreCase("cilindro")){
-            Principal interfaz = new Principal(introducirRadio(), introducirAltura());
-            volumen = interfaz.cilindro.calcularVolumen();
-            correcto = true;
+        String tipoVolumen = introducirTipo();
+        if (tipoVolumen.equalsIgnoreCase("esfera")) {
+            ejecutarEsfera();
+
+
+        } else if (tipoVolumen.equalsIgnoreCase("cilindro")) {
+            ejecutarCilindro();
+
         } else {
             System.out.println("Error en el valor introducido. \nFin de la ejecución. ");
         }
 
-        if (correcto){
-            System.out.println("El volumen de tu "+tipoVolumen + " es de "+ volumen+" unidades. ");
-        }
+
+        System.out.println("El volumen de tu " + tipoVolumen + " es de " + volumen + " unidades. ");
+
     }
 
-    public static String introducirTipo(){
+    public static String introducirTipo() {
         System.out.println("Introduzca el tipo de volumen: \"cilindro\" o \"esfera\" ");
         return sc.nextLine();
     }
 
-    public static int introducirNumero(String texto){
+    public static int introducirNumero(String texto) {
         int dato = 0;
-        do{
+        do {
             System.out.println(texto);
-            if (sc.hasNextInt()){
+            if (sc.hasNextInt()) {
                 dato = sc.nextInt();
-                if (dato < 1){
+                if (dato < 1) {
                     System.out.println("El número introducido no puede ser menor a 0. ");
                 }
             } else {
@@ -64,11 +62,29 @@ public class Principal {
         return dato;
     }
 
-    public static int introducirRadio(){
+    public static int introducirRadio() {
         return introducirNumero("Introduce el radio: ");
     }
 
-    public static int introducirAltura(){
+    public static int introducirAltura() {
         return introducirNumero("Introduce la altura: ");
     }
+
+    public static void ejecutarEsfera() {
+        Principal interfaz = new Principal(introducirRadio());
+        printVolumen("esfera", interfaz.esfera.calcularVolumen());
+
+    }
+
+    public static void ejecutarCilindro(){
+        Principal interfaz = new Principal(introducirRadio(), introducirAltura());
+        printVolumen("cilindro", interfaz.cilindro.calcularVolumen());
+    }
+
+    public static void printVolumen(String tipo, double volumen){
+        System.out.println("El volumen de tu"+ tipo +" es de " +
+                volumen + " unidades. ");
+    }
+
+
 }
